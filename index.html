@@ -1,0 +1,748 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="A working preview of Gir Aura's new website and Instagram, by Dive X Marketing.">
+<meta property="og:title" content="Gir Aura × Dive X"><meta property="og:description" content="Scroll the new website. Tap through the new Instagram.">
+<meta property="og:image" content="https://vivetopg.github.io/giraura-divex/img/og.jpg"><meta property="og:type" content="website"><meta property="og:url" content="https://vivetopg.github.io/giraura-divex/">
+<title>Gir Aura × Dive X</title>
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,800&family=Caveat:wght@500&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Playfair+Display:ital,wght@0,500;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a Dive X pitch shell (ink, lime, lavender) wrapped around two working previews in Gir Aura's own palette: a clickable website in a browser frame and an Instagram profile in a phone. Single dark look by choice. */
+:root{
+  --ink:#141414; --ink-2:#1F1F1F; --rule:#353535; --paper:#F4F3EE; --dim:#9C9C96;
+  --lime:#D8FB6E; --lav:#A98BF5;
+  --cream:#F0ECE4; --forest:#22382B; --sand:#E4D6C3; --caramel:#B5673A; --leaf:#2F7D4F;
+  --f-d:"Bodoni Moda","Didot",Georgia,serif;
+  --f-b:"Inter",system-ui,-apple-system,sans-serif;
+  --f-gs:"Playfair Display",Georgia,serif;
+  --f-gb:"Plus Jakarta Sans",system-ui,sans-serif;
+  --f-hand:"Caveat","Bradley Hand",cursive;
+  --gl:max(16px,env(safe-area-inset-left,0px)); --gr:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font:400 15px/1.5 var(--f-b);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+p,h1,h2,h3,h4{margin:0}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.lbl{font:500 11px/1.5 var(--f-b);letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.dx{font:800 22px/1 var(--f-d);letter-spacing:-.03em}.dx b{color:var(--lime)}
+h1,h2{font-family:var(--f-d);font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.9;text-wrap:balance}
+h1{font-size:clamp(44px,9vw,116px)}
+h2{font-size:clamp(34px,6vw,72px)}
+.sec{padding-block:72px}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+
+/* pitch nav */
+.pnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(20,20,20,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.pnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
+.pnav nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.pnav a{color:var(--paper);text-decoration:none;font:500 12px/1 var(--f-b);padding:9px 12px;border-radius:99px;border:1px solid var(--rule)}
+.pnav a:hover{border-color:var(--lime);color:var(--lime)}
+
+/* intro */
+.intro{padding-block:72px 40px;position:relative}
+.intro h1 em{font-style:normal;color:var(--lime)}
+.intro p.lede{font-size:18px;color:#CFCFC8;max-width:46ch;margin-top:24px}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;text-decoration:none;font:600 14px/1 var(--f-b);padding:15px 20px;border-radius:99px}
+.btn.l{background:var(--lime);color:var(--ink)}.btn.v{background:var(--lav);color:var(--ink)}
+
+/* controls */
+.ctl{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-bottom:16px}
+.seg{display:inline-flex;background:var(--ink-2);border:1px solid var(--rule);border-radius:99px;padding:4px;gap:2px}
+.seg button{font:500 12.5px/1 var(--f-b);padding:9px 14px;border-radius:99px;color:var(--dim)}
+.seg button[aria-pressed="true"]{background:var(--lime);color:var(--ink);font-weight:600}
+.try{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.try span{font-size:12.5px;border:1px dashed var(--rule);border-radius:99px;padding:8px 12px;color:#CFCFC8}
+.try span b{color:var(--lime);font-weight:600}
+
+/* ===== browser frame + Gir Aura site ===== */
+.frame{margin:0 auto;border-radius:14px;overflow:hidden;background:#DDD7CA;position:relative;transition:max-width .45s cubic-bezier(.2,.7,.2,1);max-width:100%;box-shadow:0 40px 80px -40px #000}
+.frame.phone{max-width:390px;border-radius:34px;border:8px solid #2A2A2A}
+.chrome{display:flex;gap:6px;align-items:center;padding:10px 14px}
+.chrome i{width:10px;height:10px;border-radius:50%;background:#BDB6A8}
+.chrome code{margin-left:8px;flex:1;min-width:0;font:12px ui-monospace,Menlo,monospace;color:#6F695D;background:var(--cream);padding:5px 12px;border-radius:6px}
+.frame.phone .chrome{display:none}
+.site{height:min(800px,84vh);overflow-y:auto;overflow-x:hidden;container:site/inline-size;background:var(--cream);color:var(--forest);font:400 15px/1.55 var(--f-gb);position:relative;
+  --acc:var(--caramel);--hbg:var(--cream);--hink:var(--forest);--hsub:#4A5B50;--barbg:var(--forest);--barink:var(--cream);scroll-behavior:smooth}
+.site[data-fest="diwali"]{--acc:#E0A93B;--hbg:#4A1420;--hink:#F6E7C8;--hsub:#E3C9B0;--barbg:#E0A93B;--barink:#3A0F18}
+.site[data-fest="paryushan"]{--acc:#D97A12;--hbg:#FBF7EE;--hink:#3B2A12;--hsub:#6B5637;--barbg:#D97A12;--barink:#fff}
+.s-in{max-width:1080px;margin:0 auto;padding-inline:clamp(18px,4cqw,44px)}
+.s-bar{background:var(--barbg);color:var(--barink);text-align:center;font:600 12px/1.3 var(--f-gb);letter-spacing:.04em;padding:9px 12px;transition:background .4s,color .4s}
+.s-nav{position:sticky;top:0;z-index:5;background:rgba(240,236,228,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--sand)}
+.s-nav .s-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
+.s-nav img{height:34px;width:auto;display:block}
+.s-links{display:flex;gap:22px;font-size:13.5px;font-weight:500}
+.s-links a{color:inherit;text-decoration:none}.s-links a:hover{color:var(--caramel)}
+.s-cart{font:600 13px/1 var(--f-gb);background:var(--forest);color:var(--cream);padding:10px 14px;border-radius:99px;display:flex;gap:8px;align-items:center}
+.s-cart b{background:var(--cream);color:var(--forest);border-radius:99px;min-width:20px;height:20px;display:grid;place-items:center;font-size:11px}
+.s-cart.bump b{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.5)}}
+.hero{background:var(--hbg);color:var(--hink);transition:background .5s,color .5s;overflow:hidden}
+.hero .s-in{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding-block:44px 0}
+.hand{font:500 30px/1 var(--f-hand);color:var(--acc)}
+.hero h3{font:500 clamp(34px,6.2cqw,68px)/1.02 var(--f-gs);letter-spacing:-.015em;margin-top:10px}
+.hero h3 i{font-style:italic;color:var(--acc)}
+.hero p:not(.hand){margin-top:16px;max-width:40ch;color:var(--hsub);font-size:16px}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.gbtn{font:700 13px/1 var(--f-gb);letter-spacing:.03em;padding:15px 22px;border-radius:99px;background:var(--forest);color:var(--cream);transition:transform .15s}
+.gbtn:hover{transform:translateY(-2px)}
+.gbtn.o{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.site[data-fest="diwali"] .hero .gbtn:not(.o){background:#E0A93B;color:#3A0F18}
+.arch{position:relative;justify-self:center;width:min(100%,400px)}
+.arch img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 0 0}
+.chip{position:absolute;background:#fff;color:var(--forest);font:600 12px/1 var(--f-gb);padding:10px 13px;border-radius:99px;box-shadow:0 10px 24px -10px rgba(0,0,0,.35);display:flex;gap:7px;align-items:center}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf)}
+.chip.c1{left:-6%;top:26%}.chip.c2{right:-4%;top:48%}.chip.c3{left:2%;bottom:14%}
+.strip{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;padding:16px 18px;border-bottom:1px solid var(--sand);font:600 12px/1.3 var(--f-gb);letter-spacing:.08em;text-transform:uppercase}
+.strip span::before{content:"✦ ";color:var(--caramel)}
+.s-sec{padding-block:56px}
+.s-h{display:flex;flex-direction:column;gap:6px;margin-bottom:26px}
+.s-h h4{font:500 clamp(28px,4.4cqw,44px)/1.08 var(--f-gs);letter-spacing:-.01em;text-wrap:balance}
+.s-h h4 i{font-style:italic;color:var(--caramel)}
+.s-h p{color:#55655A;max-width:52ch}
+.prods{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pc{background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.pc img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s}
+.pc:hover img{transform:scale(1.05)}
+.pc .b{padding:12px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc small{font:600 10px/1 var(--f-gb);letter-spacing:.12em;text-transform:uppercase;color:var(--caramel)}
+.pc b{font:500 16px/1.2 var(--f-gs)}
+.pc .pr{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px;font-weight:700;font-size:14px}
+.pc .pr s{font-weight:400;color:#8C968E;font-size:12px;margin-left:4px}
+.add{width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--cream);font-size:20px;line-height:1;display:grid;place-items:center;flex:none}
+.add:hover{background:var(--caramel)}
+/* lens */
+.lens{background:var(--forest);color:var(--cream)}
+.lens .s-h p{color:#B9C7BC}.lens .s-h h4 i{color:#E9B98F}
+.l-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.l-tabs button{font:600 13px/1 var(--f-gb);padding:10px 15px;border-radius:99px;box-shadow:inset 0 0 0 1px #4C6354;color:#D8E0D9}
+.l-tabs button[aria-pressed="true"]{background:var(--cream);color:var(--forest);box-shadow:none}
+.l-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:center}
+.l-img{border-radius:18px;overflow:hidden;position:relative}
+.l-img img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.ings{display:flex;flex-wrap:wrap;gap:8px}
+.ings button{font:600 14px/1 var(--f-gb);padding:12px 16px;border-radius:99px;background:#2E4838;color:var(--cream)}
+.ings button[aria-pressed="true"]{background:#E9B98F;color:var(--forest)}
+.l-card{margin-top:16px;background:var(--cream);color:var(--forest);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.l-card h5{margin:0;font:500 28px/1.1 var(--f-gs)}
+.l-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.l-rows div{border-top:1px solid var(--sand);padding-top:10px;font-size:13.5px;line-height:1.4}
+.l-rows span{display:block;font:700 10px/1 var(--f-gb);letter-spacing:.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:6px}
+.l-rows s{color:#8C968E}
+.never{font-size:12.5px;color:#B9C7BC;margin-top:14px}
+/* box */
+.box-grid{display:grid;grid-template-columns:1.6fr .7fr;gap:22px;align-items:start}
+.picks{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.pick{background:#fff;border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:8px;text-align:left;box-shadow:inset 0 0 0 2px transparent;position:relative}
+.pick img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block}
+.pick b{font:600 12.5px/1.25 var(--f-gb)}.pick span{font-size:12.5px;color:#55655A}
+.pick[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--forest)}
+.pick[aria-pressed="true"]::after{content:"✓";position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;font-size:13px}
+.sumry{background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
+.sumry .line{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.sumry .tot{font:500 34px/1 var(--f-gs);font-variant-numeric:lining-nums}
+.prog{height:8px;background:var(--sand);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--leaf);border-radius:99px;transition:width .35s}
+.msg{font:600 13px/1.3 var(--f-gb);color:var(--caramel)}
+.msg.ok{color:var(--leaf)}
+/* quiz */
+.quiz{background:var(--sand)}
+.q-card{background:var(--cream);border-radius:22px;padding:clamp(20px,4cqw,36px);display:grid;grid-template-columns:1fr;gap:18px;max-width:760px;margin:0 auto}
+.q-step{font:700 11px/1 var(--f-gb);letter-spacing:.14em;text-transform:uppercase;color:var(--caramel)}
+.q-card h5{margin:0;font:500 28px/1.15 var(--f-gs)}
+.q-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.q-opts button{text-align:left;background:#fff;border-radius:14px;padding:16px;font:600 14px/1.3 var(--f-gb);box-shadow:inset 0 0 0 1.5px var(--sand)}
+.q-opts button:hover{box-shadow:inset 0 0 0 1.5px var(--forest)}
+.q-res{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center}
+.q-res img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;display:block}
+.q-res p{color:#55655A;margin:8px 0 14px}
+.link{font:600 13px/1 var(--f-gb);text-decoration:underline;margin-left:14px}
+/* founder */
+.founder{position:relative;overflow:hidden;text-align:center}
+.founder .dev{position:absolute;inset:auto 0 -40px;font:500 clamp(90px,22cqw,240px)/1 "Noto Serif Devanagari",serif;color:var(--sand);opacity:.55;pointer-events:none;white-space:nowrap}
+.founder blockquote{position:relative;margin:0 auto;max-width:20ch;font:italic 500 clamp(28px,4.6cqw,48px)/1.15 var(--f-gs)}
+.founder cite{position:relative;display:block;margin-top:18px;font:600 12px/1 var(--f-gb);letter-spacing:.14em;text-transform:uppercase;font-style:normal;color:var(--caramel)}
+.ugc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ugc figure{margin:0;position:relative;border-radius:14px;overflow:hidden}
+.ugc img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.ugc figcaption{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.92);font:600 11px/1 var(--f-gb);padding:7px 10px;border-radius:99px}
+.s-foot{background:var(--forest);color:var(--cream);text-align:center;padding-block:44px}
+.s-foot h4{font:500 30px/1.15 var(--f-gs)}
+.s-foot .gbtn{background:#25D366;color:#08361B;margin-top:18px}
+.toast{position:absolute;left:50%;bottom:18px;transform:translate(-50%,20px);background:var(--forest);color:var(--cream);font:600 13px/1 var(--f-gb);padding:13px 18px;border-radius:99px;opacity:0;transition:.3s;pointer-events:none;z-index:9;white-space:nowrap;box-shadow:0 12px 30px -10px #000}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@container site (max-width:760px){
+  .s-links{display:none}
+  .hero .s-in{grid-template-columns:1fr;padding-block:30px 0}
+  .hand{font-size:24px}
+  .arch{width:78%}
+  .prods{grid-template-columns:repeat(2,1fr)}
+  .l-grid,.box-grid{grid-template-columns:1fr}
+  .picks{grid-template-columns:repeat(3,1fr)}
+  .l-img{max-width:240px}
+  .l-rows{grid-template-columns:1fr}
+  .sumry{position:static}
+  .q-res{grid-template-columns:96px 1fr}
+  .ugc{grid-template-columns:1fr 1fr}.ugc figure:last-child{display:none}
+  .s-sec{padding-block:40px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .chip{animation:float 5s ease-in-out infinite}.chip.c2{animation-delay:-1.6s}.chip.c3{animation-delay:-3.2s}
+  @keyframes float{50%{transform:translateY(-8px)}}
+}
+
+/* ===== the day: scroll experience ===== */
+.sc{position:relative;overflow:hidden;--p:1}
+.dawn{height:620px;color:#FFF8EC;display:flex;align-items:flex-end;--d1:rgba(255,170,110,.12);--d2:rgba(18,30,22,.9)}
+.site[data-fest="diwali"] .dawn{--d1:rgba(224,169,59,.55);--d2:rgba(74,20,32,.94)}
+.site[data-fest="paryushan"] .dawn{--d1:rgba(255,236,200,.65);--d2:rgba(110,56,6,.9)}
+.dawn-bg{position:absolute;inset:-14% 0;background:url(img/g-dawn.jpg) center 35%/cover;will-change:transform}
+.dawn::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--d1) 0%,rgba(0,0,0,0) 34%,var(--d2) 100%)}
+.mist{position:absolute;left:-30%;width:160%;height:46%;top:26%;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,.6),transparent 60%),radial-gradient(ellipse at 75% 40%,rgba(255,255,255,.45),transparent 55%);filter:blur(18px);opacity:calc(.95 - var(--sp,0)*1.1)}
+.mist.m2{top:42%}
+.dawn-in{position:relative;z-index:2;padding-block:0 52px;width:100%}
+.dawn h3{font:500 clamp(40px,7.6cqw,88px)/1 var(--f-gs);letter-spacing:-.02em;margin-top:6px;max-width:11ch}
+.dawn h3 i{font-style:italic;color:#FFD9A8}
+.dawn .hand{color:#FFD9A8}
+.dawn p:not(.hand){margin-top:14px;max-width:38ch;font-size:16px;color:#F1E6D6}
+.gbtn.lt{background:#FFF8EC;color:var(--forest);margin-top:22px}
+.ques{background:#F7EEE3;padding-block:72px}
+.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.xh{font:500 clamp(30px,4.8cqw,54px)/1.08 var(--f-gs);letter-spacing:-.01em;text-wrap:balance;margin-top:6px}
+.xh i{font-style:italic;color:var(--caramel)}
+.xp-p{margin-top:14px;color:#55655A;max-width:40ch}
+.peel{position:relative;aspect-ratio:4/5;max-width:330px;width:100%;justify-self:center;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(60,30,10,.55);--pp:12%}
+.pl-back{position:absolute;inset:0;background:#fff;padding:26px;display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.75;color:#333}
+.pl-t{font:700 11px/1 var(--f-gb);letter-spacing:.16em;text-transform:uppercase;color:#888}
+.pl-back mark{background:#FFD9CF;color:#9A2B14;padding:1px 4px;border-radius:4px}
+.pl-back em{color:#9A2B14}
+.pl-n{margin-top:auto;font-size:12px;color:#888}
+.pl-front{position:absolute;inset:0;background:linear-gradient(160deg,#86BDEB,#3C74C4);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;clip-path:inset(0 0 0 var(--pp));padding:20px}
+.pl-front b{font:700 30px/1.05 var(--f-gb)}
+.pl-brand{font:700 12px/1 var(--f-gb);letter-spacing:.3em}
+.peel::after{content:"";position:absolute;top:0;bottom:0;left:var(--pp);width:16px;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(255,255,255,.75) 45%,rgba(255,255,255,0));pointer-events:none}
+.peel input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.pl-hint{position:absolute;bottom:14px;right:16px;font:500 22px/1 var(--f-hand);color:#fff;pointer-events:none}
+.rit{padding-block:64px;background:var(--cream)}
+.rit.alt{background:#EAE2D4}
+.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.rev .r-img{order:2}
+.r-img{margin:0;overflow:hidden;max-width:390px;width:100%;justify-self:center;border-radius:999px 999px 24px 24px;clip-path:inset(calc((1 - var(--p))*14%) round 999px 999px 24px 24px)}
+.r-img img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transform:scale(calc(1.26 - var(--p)*.26))}
+.r-time{font:600 13px/1 var(--f-gb);letter-spacing:.2em;color:var(--caramel)}
+.r-name{font:italic 500 clamp(58px,10.5cqw,124px)/.95 var(--f-gs);letter-spacing:-.03em;margin:6px 0 14px}
+.r-tx p{max-width:34ch;color:#55655A;font-size:16px}
+.r-ing{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.r-ing span{font:600 13px/1 var(--f-gb);padding:9px 13px;border-radius:99px;background:#fff;box-shadow:inset 0 0 0 1px var(--sand)}
+.r-ing span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--leaf);margin-right:7px}
+.r-add{font:700 13px/1.4 var(--f-gb);text-decoration:underline;text-underline-offset:4px}
+.dusk{background:radial-gradient(120% 90% at 30% 60%,#33190F 0,#160C08 70%);color:#F3E3CF;padding-block:72px}
+.dusk.lit{background:radial-gradient(120% 90% at 30% 60%,#70380F 0,#1F100A 74%)}
+.dusk .r-time{color:#E9B98F}.dusk .r-tx p{color:#D9C3A8}
+.dusk .r-img img{filter:brightness(.62) saturate(.8);transition:filter .9s}
+.dusk.lit .r-img img{filter:brightness(1.03) saturate(1.1)}
+#smoke{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.gbtn.amber{background:#E9A040;color:#2A1408;margin-top:22px}
+.boxs{background:#16261D;color:var(--cream);padding-block:72px;text-align:center}
+.boxs .hand,.boxs .xh i{color:#E9B98F}
+.bx-stage{position:relative;width:min(72%,340px);margin:34px auto 30px}
+.bx-kit{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 24px 24px}
+.fly{position:absolute;width:28%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 4px #16261D,0 14px 30px -10px #000;transform:translate(calc(var(--dx)*(1 - var(--p))),calc(var(--dy)*(1 - var(--p))))}
+.f1{left:-13%;top:16%;--dx:-170%;--dy:-60%}.f2{right:-13%;top:16%;--dx:170%;--dy:-60%}.f3{left:-15%;bottom:9%;--dx:-170%;--dy:60%}.f4{right:-15%;bottom:9%;--dx:170%;--dy:60%}
+.boxs .gbtn{background:var(--cream);color:var(--forest)}
+.bx-n{margin-top:14px;font-size:13.5px;color:#B9C7BC}
+.clock{position:absolute;left:16px;bottom:16px;z-index:8;display:flex;align-items:center;gap:9px;background:rgba(20,26,22,.84);color:#fff;backdrop-filter:blur(6px);padding:9px 14px 9px 10px;border-radius:99px;font:600 12px/1 var(--f-gb);transition:opacity .3s;pointer-events:none}
+.clock i{width:16px;height:16px;border-radius:50%;background:#FFB45E;box-shadow:0 0 10px #FFB45E;transition:.5s}
+.clock.night i{background:#E8ECF5;box-shadow:0 0 10px #AEB9D6}
+.clock b{font-variant-numeric:tabular-nums}.clock span{opacity:.7}
+.clock.off{opacity:0}
+@container site (max-width:760px){
+  .dawn{height:540px}
+  .q-grid,.r-grid{grid-template-columns:1fr;gap:24px}
+  .rev .r-img{order:0}
+  .r-img{max-width:250px}
+  .rit,.ques,.dusk,.boxs{padding-block:44px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .mist{animation:drift 26s linear infinite alternate}.mist.m2{animation-duration:38s;animation-direction:alternate-reverse}
+  @keyframes drift{to{transform:translateX(12%)}}
+}
+
+/* ===== Instagram ===== */
+.ig-wrap{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:48px;align-items:start}
+@media (max-width:860px){.ig-wrap{grid-template-columns:1fr;gap:28px}}
+.phone{width:100%;max-width:372px;margin:0 auto;background:#000;border-radius:44px;padding:10px;box-shadow:0 40px 80px -40px #000,inset 0 0 0 2px #333}
+.scr{background:#fff;color:#111;border-radius:35px;height:720px;max-height:82vh;overflow:hidden;position:relative;font:400 13px/1.4 var(--f-b);color-scheme:light}
+.scr-in{height:100%;overflow-y:auto}
+.ig-top{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 8px;font-weight:700;font-size:16px}
+.ig-prof{display:flex;gap:18px;align-items:center;padding:6px 16px}
+.av{width:78px;height:78px;border-radius:50%;background:var(--forest);padding:3px;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--caramel);flex:none;display:grid;place-items:center;overflow:hidden}
+.av img{width:86%;filter:brightness(0) invert(1);display:block}
+.st{display:flex;gap:18px;flex:1;justify-content:space-around;text-align:center;font-size:12px}
+.st b{display:block;font-size:16px}
+.bio{padding:8px 16px 4px;font-size:12.5px;line-height:1.45}
+.bio a{color:#00376B;font-weight:600;text-decoration:none}
+.ig-btns{display:flex;gap:6px;padding:10px 16px}
+.ig-btns span{flex:1;text-align:center;font-weight:600;font-size:12.5px;padding:8px;border-radius:8px;background:#EFEFEF}
+.ig-btns span:first-child{background:var(--forest);color:#fff}
+.hls{display:flex;gap:12px;padding:6px 16px 12px;overflow-x:auto}
+.hls button{flex:none;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:#111}
+.hls i{width:58px;height:58px;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--sand)}
+.ig-tabs{display:flex;border-top:1px solid #E5E5E5}
+.ig-tabs span{flex:1;text-align:center;padding:10px;font-size:11px;font-weight:600;color:#8A8A8A;letter-spacing:.06em}
+.ig-tabs span:first-child{color:#111;box-shadow:inset 0 -1.5px 0 #111}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.grid3 button{display:block}
+/* tiles scale with their own width */
+.tile{container-type:inline-size;aspect-ratio:4/5;width:100%;position:relative;overflow:hidden;display:block;text-align:left;font-family:var(--f-gb)}
+.tile .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.tile .in{position:absolute;inset:0;padding:8cqw;display:flex;flex-direction:column;justify-content:space-between}
+.tile .tk{font-weight:700;font-size:4.2cqw;letter-spacing:.16em;text-transform:uppercase}
+.tile .tt{font:500 12cqw/1.05 var(--f-gs);letter-spacing:-.01em}
+.tile .tt i{font-style:italic}
+.tile .rl{position:absolute;top:6cqw;right:6cqw;width:8cqw;height:8cqw;border-radius:2cqw;border:.9cqw solid currentColor}
+.tile .rl::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:3cqw solid currentColor;border-top:2cqw solid transparent;border-bottom:2cqw solid transparent}
+.tile{color:#fff}.tile .bg{filter:saturate(1.04) contrast(1.02)}.tile .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,20,14,.42) 0,rgba(24,20,14,0) 26%,rgba(24,20,14,0) 52%,rgba(24,20,14,.8) 100%)}.tile.cl .bg::after{background:linear-gradient(180deg,rgba(24,20,14,.42) 0,rgba(24,20,14,0) 28%)}
+.tile .tt i{color:#FFD9A8}
+.t-forest{background:var(--forest);color:var(--cream)}.t-forest .tt i{color:#E9B98F}
+.t-sand{background:var(--sand);color:var(--forest)}.t-sand .tt i{color:var(--caramel)}
+.t-cream{background:var(--cream);color:var(--forest)}
+.t-cream .bg{inset:0 0 34% 0;border-radius:0 0 50cqw 50cqw}
+.t-cream .in{justify-content:flex-end;gap:2cqw}.t-cream .tt{font-size:9.6cqw}
+/* overlays */
+.ov{position:absolute;inset:0;background:#fff;z-index:5;display:flex;flex-direction:column;overflow-y:auto}
+.ov-h{display:flex;align-items:center;gap:12px;padding:14px 16px;font-weight:700;font-size:15px;border-bottom:1px solid #EEE}
+.ov-h button{font-size:20px;line-height:1;color:#111}
+.ov .who{display:flex;align-items:center;gap:8px;padding:10px 14px;font-weight:600}
+.ov .who i{width:28px;height:28px;border-radius:50%;background:var(--forest)}
+.ov .acts{padding:10px 14px 2px;font-size:19px;letter-spacing:8px}
+.ov .cap{padding:4px 14px 20px;font-size:13px;line-height:1.5;white-space:pre-line}
+.story{position:absolute;inset:0;z-index:6;background:#000;color:#fff}
+.story .tile{height:100%;aspect-ratio:auto}
+.story .tile .in{padding:64px 26px 60px}
+.story .tile .tt{font-size:34px}.story .tile .tk{font-size:11px}
+.sbar{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:4px;z-index:2}
+.sbar i{flex:1;height:2.5px;background:rgba(255,255,255,.35);border-radius:2px;overflow:hidden}
+.sbar i b{display:block;height:100%;width:0;background:#fff}
+.sbar i.done b{width:100%}
+.sbar i.on b{animation:fill 3.2s linear forwards}
+@keyframes fill{to{width:100%}}
+.story .x{position:absolute;top:26px;right:14px;z-index:3;font-size:24px;color:#fff;width:36px;height:36px}
+.story .nx{position:absolute;inset:60px 0 0;z-index:2}
+/* side panel */
+.side{display:flex;flex-direction:column;gap:22px}
+.brief{background:var(--ink-2);border:1px solid var(--rule);border-radius:16px;padding:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.brief div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.brief b{font:800 19px/1.2 var(--f-d);letter-spacing:-.01em}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.legend span{display:flex;align-items:center;gap:8px;font-size:13px;border:1px solid var(--rule);border-radius:99px;padding:8px 12px}
+.legend i{width:14px;height:14px;border-radius:4px}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
+.nums div{border-top:1px solid var(--rule);padding-top:12px}
+.nums b{display:block;font:800 40px/1 var(--f-d);letter-spacing:-.03em;color:var(--lime);font-variant-numeric:lining-nums}
+.nums span{font-size:12.5px;color:var(--dim)}
+.note{font-size:12px;color:var(--dim)}
+
+/* ===== before / after ===== */
+.ba-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:24px}
+.ba{position:relative;border-radius:14px;overflow:hidden;--p:50%;background:#000;max-width:100%}
+.ba img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.ba .bf{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .hd{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:var(--lime);transform:translateX(-50%);pointer-events:none}
+.ba .hd::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--lime);color:var(--ink);font:700 14px/1 var(--f-b);padding:10px 9px;border-radius:99px;white-space:nowrap}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .tg{position:absolute;top:12px;font:600 10px/1 var(--f-b);letter-spacing:.16em;text-transform:uppercase;padding:7px 9px;border-radius:99px;pointer-events:none}
+.ba .tg.a{left:12px;background:#000;color:#fff}.ba .tg.b{right:12px;background:var(--lime);color:var(--ink)}
+.ba-cap{margin-top:10px;font-size:13px;color:var(--dim)}
+
+/* ===== investment ===== */
+.price{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.pbox{border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.pbox.v{background:var(--lav);color:var(--ink)}.pbox.l{background:var(--lime);color:var(--ink)}
+.pbox .lbl{color:rgba(20,20,20,.6)}
+.pbox .amt{font:800 clamp(48px,7vw,76px)/1 var(--f-d);letter-spacing:-.04em;font-variant-numeric:lining-nums}
+.pbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:500}
+.pbox li::before{content:"→ "}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:18px;margin-top:40px}
+.steps div{border-top:1px solid var(--rule);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.steps .n{font:800 30px/1 var(--f-d);color:var(--lime)}
+.steps p{font-size:13.5px;color:var(--dim)}
+.contact{display:flex;flex-wrap:wrap;gap:16px 44px;margin-top:40px;padding-top:22px;border-top:1px solid var(--rule)}
+.contact div{display:flex;flex-direction:column;gap:5px;overflow-wrap:anywhere}
+
+/* screenshot modes (used once to make the "after" images) */
+body.shot-web>*:not(#website),body.shot-web .head,body.shot-web .ctl,body.shot-web .try,body.shot-web .chrome{display:none}
+body.shot-web .sec,body.shot-web .wrap{padding:0;max-width:none}
+body.shot-web .clock{display:none}body.shot-web .frame{border-radius:0}body.shot-web .site{height:100vh}
+body.shot-ig>*:not(#shotgrid){display:none}
+#shotgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:#0C1014}
+</style>
+
+<header class="pnav"><div class="wrap">
+  <span class="dx">DIVE<b>X</b></span>
+  <nav aria-label="Sections"><a href="#website">Website</a><a href="#instagram">Instagram</a><a href="#compare">Before / After</a><a href="#investment">Investment</a></nav>
+</div></header>
+
+<section class="intro" id="top"><div class="wrap">
+  <p class="lbl">A working preview for Gir Aura · by Dive X Marketing</p>
+  <h1 style="margin-top:18px">Don't read it.<br><em>Use it.</em></h1>
+  <p class="lede">Your new website is a day you scroll through. Your new Instagram is led by photography of your own products. Try both.</p>
+  <div class="jump"><a class="btn l" href="#website">Open the website ↓</a><a class="btn v" href="#instagram">Open the Instagram ↓</a></div>
+</div></section>
+
+<!-- ============ WEBSITE ============ -->
+<section class="sec" id="website"><div class="wrap">
+  <div class="head"><p class="lbl">01 · Your new website</p><h2>Scroll the day.</h2></div>
+  <div class="ctl">
+    <div class="seg" role="group" aria-label="Device" id="dev"><button id="dev-d" aria-pressed="true" data-v="desktop">Desktop</button><button id="dev-p" aria-pressed="false" data-v="phone">Phone</button></div>
+    <div class="seg" role="group" aria-label="Festival mode" id="fest"><button id="f-e" aria-pressed="true" data-v="everyday">Everyday</button><button id="f-d" aria-pressed="false" data-v="diwali">Diwali</button><button id="f-p" aria-pressed="false" data-v="paryushan">Paryushan</button></div>
+  </div>
+  <div class="frame" id="frame">
+    <div class="chrome"><i></i><i></i><i></i><code>giraura.com</code></div>
+    <div class="site" id="site" data-fest="everyday" tabindex="0" aria-label="Gir Aura website preview">
+      <div class="s-bar" id="s-bar">Free shipping over ₹999 · Subscribe &amp; save 10%</div>
+      <div class="s-nav"><div class="s-in">
+        <img src="img/logo.png" alt="Gir Aura, Purity with Purpose">
+        <div class="s-links"><a href="#sc-dawn">The day</a><a href="#sc-box">The box</a><a href="#s-shop">Shop</a><a href="#s-lens">Labels</a><a href="#s-quiz">Quiz</a></div>
+        <button class="s-cart" id="cart" aria-label="Cart">Cart <b id="cart-n">0</b></button>
+      </div></div>
+
+      <div class="xp" id="xp">
+        <section class="sc dawn" id="sc-dawn" data-t="05:40" data-l="Dawn">
+          <div class="dawn-bg" id="dawn-bg"></div><div class="mist"></div><div class="mist m2"></div>
+          <div class="s-in dawn-in">
+            <p class="hand" id="h-k">before the day begins</p>
+            <h3 id="h-h">One day, lived with <i>Ahimsa.</i></h3>
+            <p id="h-p">Scroll through a morning in a Jain home. Every ritual, and what goes into it.</p>
+            <button class="gbtn lt" id="h-cta" data-go="sc-q">Begin the day ↓</button>
+          </div>
+        </section>
+
+        <section class="sc ques" id="sc-q" data-t="05:55" data-l="The question"><div class="s-in q-grid">
+          <div><p class="hand">a small question</p><h4 class="xh">We read every label on our plate. <i>Why not on our shelf?</i></h4><p class="xp-p">Drag across the bottle to peel a typical label and see the small print.</p></div>
+          <div class="peel" id="peel">
+            <div class="pl-back"><span class="pl-t">Ingredients</span><p>Aqua, <mark>Sodium Laureth Sulfate</mark>, Cocamidopropyl Betaine, Dimethicone, <mark>Parfum</mark>, <mark>Methylparaben</mark>, Glycerin <em>(source not stated)</em>, CI 19140</p><span class="pl-n">A typical mass-market shampoo label</span></div>
+            <div class="pl-front"><span class="pl-brand">BRAND X</span><b>Herbal Fresh Shampoo</b><span>with natural extracts</span></div>
+            <span class="pl-hint">drag to peel →</span>
+            <input type="range" id="peel-r" min="0" max="100" value="12" aria-label="Peel the label">
+          </div>
+        </div></section>
+
+        <section class="sc rit" id="sc-1" data-t="06:10" data-l="Cleanse"><div class="s-in r-grid">
+          <figure class="r-img"><img src="img/g-paste.jpg" alt="Girfresh toothpaste on a stone ledge with a brass lota and neem"></figure>
+          <div class="r-tx"><span class="r-time">06:10</span><h4 class="r-name">Cleanse</h4><p>Girfresh, made with neem, clove and mint. Nothing you would need to look up.</p><div class="r-ing"><span>Neem</span><span>Clove</span><span>Mint</span></div><button class="r-add" id="ra-paste" data-add="paste">Add to my ritual · ₹150</button></div>
+        </div></section>
+
+        <section class="sc rit alt rev" id="sc-2" data-t="06:25" data-l="Bathe"><div class="s-in r-grid">
+          <figure class="r-img"><img src="img/g-hands.jpg" alt="Hands lathering the soap under a brass tap"></figure>
+          <div class="r-tx"><span class="r-time">06:25</span><h4 class="r-name">Bathe</h4><p>A calendula and tulsi bar that leaves skin clean, not stripped.</p><div class="r-ing"><span>Calendula</span><span>Tulsi</span></div><button class="r-add" id="ra-soap" data-add="soap">Add to my ritual · ₹180</button></div>
+        </div></section>
+
+        <section class="sc rit" id="sc-3" data-t="06:40" data-l="Nourish"><div class="s-in r-grid">
+          <figure class="r-img"><img src="img/g-oil.jpg" alt="Gir Nourish hair oil poured into an open palm"></figure>
+          <div class="r-tx"><span class="r-time">06:40</span><h4 class="r-name">Nourish</h4><p>Slow-made Gir Nourish oil for the roots. Hibiscus and mulethi for the wash.</p><div class="r-ing"><span>Coconut</span><span>Hibiscus</span><span>Mulethi</span></div><button class="r-add" id="ra-oil" data-add="oil">Add to my ritual · ₹400</button></div>
+        </div></section>
+
+        <section class="sc dusk rev" id="sc-dusk" data-t="19:30" data-l="Stillness">
+          <canvas id="smoke" aria-hidden="true"></canvas>
+          <div class="s-in r-grid">
+            <figure class="r-img"><img src="img/g-dhoop.jpg" alt="A dhoop stick burning beside a brass diya"></figure>
+            <div class="r-tx"><span class="r-time">19:30</span><h4 class="r-name">Stillness</h4><p>Charcoal-free dhoop for the quietest minute of the day.</p><button class="gbtn amber" id="light">Light the dhoop</button></div>
+          </div>
+        </section>
+
+        <section class="sc boxs" id="sc-box" data-t="21:00" data-l="The box"><div class="s-in">
+          <p class="hand">one day, four rituals</p>
+          <h4 class="xh">It all fits in <i>one box.</i></h4>
+          <div class="bx-stage"><img class="bx-kit" src="img/g-box.jpg" alt="The Samanvay box, open, with all four products">
+            <img class="fly f1" src="img/g-neem.jpg" alt=""><img class="fly f2" src="img/g-soap.jpg" alt=""><img class="fly f3" src="img/g-hibiscus.jpg" alt=""><img class="fly f4" src="img/g-oil.jpg" alt=""></div>
+          <button class="gbtn" id="bx-cta" data-add="kit">Begin your ritual · ₹1,350</button>
+          <p class="bx-n">Samanvay: shampoo, hair oil, soap and toothpaste. You save ₹180.</p>
+        </div></section>
+      </div>
+
+      <div class="s-sec" id="s-shop"><div class="s-in">
+        <div class="s-h"><h4>The whole <i>shelf.</i></h4></div>
+        <div class="prods" id="prods"></div>
+      </div></div>
+
+      <div class="s-sec lens" id="s-lens"><div class="s-in">
+        <div class="s-h"><h4>Beyond the label. <i>Tap an ingredient.</i></h4><p>Every ingredient, where it comes from and what it replaces.</p></div>
+        <div class="l-tabs" id="l-tabs" role="group" aria-label="Product"></div>
+        <div class="l-grid">
+          <div class="l-img"><img id="l-img" src="img/shampoo.jpg" alt=""></div>
+          <div><div class="ings" id="ings" role="group" aria-label="Ingredients"></div>
+            <div class="l-card" id="l-card" aria-live="polite"></div>
+            <p class="never" id="never"></p></div>
+        </div>
+      </div></div>
+
+      <div class="s-sec" id="s-box"><div class="s-in">
+        <div class="s-h"><h4>Build your own <i>Samanvay.</i></h4><p>Pick any four and save 12%.</p></div>
+        <div class="box-grid">
+          <div class="picks" id="picks"></div>
+          <div class="sumry">
+            <div class="line"><span id="b-count">3 items</span><span id="b-sub">₹1,180</span></div>
+            <div class="prog" aria-hidden="true"><i id="b-prog" style="width:75%"></i></div>
+            <p class="msg" id="b-msg">Add 1 more to save 12%</p>
+            <div class="line" style="align-items:flex-end"><span>Your box</span><span class="tot" id="b-tot">₹1,180</span></div>
+            <button class="gbtn" id="b-add">Add box to cart</button>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="s-sec quiz" id="s-quiz"><div class="s-in"><div class="q-card" id="quiz" aria-live="polite"></div></div></div>
+
+      <div class="s-sec founder"><div class="s-in">
+        <span class="dev" aria-hidden="true">अहिंसा</span>
+        <blockquote>“We are proud of what goes into our products.”</blockquote>
+        <cite>Dhruvil Desai, Founder</cite>
+      </div></div>
+
+      <div class="s-foot"><div class="s-in"><h4>Bring Gir Aura into your way of life.</h4><button class="gbtn" id="wa">Join the WhatsApp community</button></div></div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="clock" id="clock" aria-hidden="true"><i></i><b>05:40</b><span>Dawn</span></div>
+  </div>
+  <div class="try"><span><b>Try:</b> scroll inside the frame</span><span><b>Try:</b> peel the label</span><span><b>Try:</b> light the dhoop</span><span><b>Try:</b> switch to Diwali</span></div>
+</div></section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="sec" id="instagram"><div class="wrap">
+  <div class="head"><p class="lbl">02 · Your new Instagram</p><h2>Tap any post.</h2></div>
+  <div class="ig-wrap">
+    <div class="phone"><div class="scr" id="scr">
+      <div class="scr-in">
+        <div class="ig-top"><span>gir.aura</span><span aria-hidden="true">☰</span></div>
+        <div class="ig-prof"><div class="av"><img src="img/icon.png" alt="Gir Aura"></div>
+          <div class="st"><div><b>95</b>posts</div><div><b>1.5k</b>followers</div><div><b>120</b>following</div></div></div>
+        <div class="bio"><b>Gir Aura · Purity with Purpose</b><br>Personal care made by Jain principles 🪷<br>Plant-based · Ayurvedic · Made in India<br>Comment LABEL for our free label guide<br><a>giraura.com/samanvay</a></div>
+        <div class="ig-btns"><span>Follow</span><span>Message</span><span>Shop</span></div>
+        <div class="hls" id="hls"></div>
+        <div class="ig-tabs"><span>POSTS</span><span>REELS</span><span>TAGGED</span></div>
+        <div class="grid3" id="grid3"></div>
+      </div>
+    </div></div>
+    <div class="side">
+      <div><p class="lbl" style="margin-bottom:10px">What this post is for</p>
+        <div class="brief" id="brief" aria-live="polite"></div></div>
+      <div class="legend"><span>Photography first</span><span>One warm colour grade</span><span>Titles of five words or fewer</span><span>Time stamps tie posts to the daily ritual</span></div>
+      <div class="nums"><div><b>12</b><span>Reels a month</span></div><div><b>8</b><span>Carousels</span></div><div><b>25+</b><span>Stories</span></div><div><b>2</b><span>Creator collabs</span></div></div>
+      <p class="note">Tap the round Highlights to play a story. Follower count shown is the 90-day goal; today it's 164. Lifestyle images are AI-generated concepts made from Gir Aura's product photos.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="sec" id="compare"><div class="wrap">
+  <div class="head"><p class="lbl">03 · Before / After</p><h2>Drag to compare.</h2></div>
+  <div class="ba-grid">
+    <div><div class="ba" id="ba-web" style="aspect-ratio:1512/787">
+      <img src="img/after-web.jpg" alt="New Gir Aura homepage"><img class="bf" src="img/before-web.jpg" alt="Current Gir Aura homepage">
+      <span class="tg a">Today</span><span class="tg b">With Dive X</span><span class="hd"></span>
+      <input type="range" min="0" max="100" value="50" id="r-web" aria-label="Compare website before and after"></div>
+      <p class="ba-cap">Website: from a product page to a day you scroll through.</p></div>
+    <div><div class="ba" id="ba-ig" style="aspect-ratio:1119/669">
+      <img src="img/after-ig.jpg" alt="New Gir Aura Instagram grid"><img class="bf" src="img/before-ig.jpg" alt="Current Gir Aura Instagram grid">
+      <span class="tg a">Today</span><span class="tg b">With Dive X</span><span class="hd"></span>
+      <input type="range" min="0" max="100" value="50" id="r-ig" aria-label="Compare Instagram before and after"></div>
+      <p class="ba-cap">Instagram: photography first, in one warm look.</p></div>
+  </div>
+</div></section>
+
+<!-- ============ INVESTMENT ============ -->
+<section class="sec" id="investment"><div class="wrap">
+  <div class="head"><p class="lbl">04 · Investment</p><h2>Make it real.</h2></div>
+  <div class="price">
+    <div class="pbox v"><p class="lbl">Website redesign · one-time</p><p class="amt">₹25,000</p>
+      <ul><li>The scroll-through day, shop, quiz and box builder</li><li>Found on Google, rich WhatsApp links</li><li>Live in 3–4 weeks, 30 days support</li></ul></div>
+    <div class="pbox l"><p class="lbl">Social media · per month</p><p class="amt">₹30,000</p>
+      <ul><li>12 Reels, 8 carousels, 25+ stories</li><li>2 creator collabs, DM funnels, ads managed</li><li>3-month minimum, monthly report</li></ul></div>
+  </div>
+  <div class="steps">
+    <div><span class="n">01</span><b>Say yes</b><p>A reply on WhatsApp or email is enough.</p></div>
+    <div><span class="n">02</span><b>Send the advance</b><p>₹12,500 for the website + ₹30,000 for month one.</p></div>
+    <div><span class="n">03</span><b>Share access</b><p>Website, Instagram and product samples. We start the same day.</p></div>
+  </div>
+  <div class="contact">
+    <div><span class="lbl">Studio</span>Dive X Marketing</div>
+    <div><span class="lbl">Email</span>dobariya412@gmail.com</div>
+    <div><span class="lbl">Valid until</span>17 December 2026</div>
+    <div><span class="lbl">Terms</span>No GST · Ad budget and creator fees at actuals</div>
+  </div>
+  <p class="note" style="margin-top:22px">Preview only. Ingredient details, offers and captions are samples to be confirmed with Gir Aura before launch.</p>
+</div></section>
+
+<div id="shotgrid" hidden></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), rs=n=>'₹'+n.toLocaleString('en-IN');
+const P=[
+ {id:'shampoo',n:'Hibiscus & Mulethi Shampoo',c:'Hair ritual',p:600,m:700,img:'shampoo.jpg'},
+ {id:'oil',n:'Gir Nourish Hair Oil',c:'Nourishment',p:400,m:495,img:'oil.jpg'},
+ {id:'soap',n:'Calendula & Tulsi Soap',c:'Bathing',p:180,img:'soap.jpg'},
+ {id:'paste',n:'Girfresh Herbal Toothpaste',c:'Oral care',p:150,img:'paste.jpg'},
+ {id:'dhoop',n:'Gir Pavitra Dhoop Sticks',c:'Sacred ritual',p:100,m:110,img:'dhoop.jpg'}];
+const byId=id=>P.find(x=>x.id===id)||{n:'Samanvay kit',img:'kit.jpg',p:1350};
+
+/* ---- cart ---- */
+let cart=0,tt;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1800)}
+function add(n,label){cart+=n;$('#cart-n').textContent=cart;const c=$('#cart');c.classList.remove('bump');void c.offsetWidth;c.classList.add('bump');toast('Added to cart · '+label)}
+$('#cart').onclick=()=>toast(cart?cart+' item'+(cart>1?'s':'')+' in your cart':'Your cart is empty');
+$('#wa').onclick=()=>toast('Opens your WhatsApp community');
+
+/* ---- products ---- */
+$('#prods').innerHTML=P.map(x=>`<div class="pc"><img src="img/${x.img}" alt="${x.n}" loading="lazy"><div class="b"><small>${x.c}</small><b>${x.n}</b><div class="pr"><span>${rs(x.p)}${x.m?`<s>${rs(x.m)}</s>`:''}</span><button class="add" id="add-${x.id}" data-add="${x.id}" aria-label="Add ${x.n} to cart">+</button></div></div></div>`).join('');
+$('#site').addEventListener('click',e=>{
+  const a=e.target.closest('[data-add]'); if(a){add(1,byId(a.dataset.add).n);return}
+  const g=e.target.closest('[data-go]'); if(g){go(g.dataset.go);return}
+  const l=e.target.closest('.s-links a'); if(l){e.preventDefault();go(l.getAttribute('href').slice(1))}
+});
+function go(id){const s=$('#site'),el=document.getElementById(id);s.scrollTo({top:el.offsetTop-60,behavior:'smooth'})}
+
+/* ---- ingredient lens (sample content) ---- */
+const L={
+ shampoo:{t:'Shampoo',never:'Never in this bottle: SLS, parabens, animal-derived glycerin.',i:[
+  ['Hibiscus','Flower, sun-dried','Softens and conditions','Silicones'],
+  ['Mulethi','Liquorice root','Soothes a dry, itchy scalp','Synthetic anti-itch agents'],
+  ['Reetha','Soapnut shell','Makes a gentle natural lather','SLS foam']]},
+ oil:{t:'Hair oil',never:'Never in this bottle: mineral oil, artificial fragrance, colour.',i:[
+  ['Coconut','Pressed coconut oil','Carries the herbs deep into the scalp','Mineral oil'],
+  ['Amla','Indian gooseberry','Strengthens from the root','Synthetic vitamin blends'],
+  ['Bhringraj','Leaf, slow-infused','Traditional support for thicker hair','Artificial growth additives']]},
+ soap:{t:'Soap',never:'Never in this bar: tallow, artificial colour, harsh surfactants.',i:[
+  ['Calendula','Marigold petals','Calms sensitive skin','Synthetic soothing agents'],
+  ['Tulsi','Holy basil leaf','Keeps skin clear and fresh','Triclosan'],
+  ['Plant glycerin','From vegetable oils','Holds moisture in the skin','Animal tallow']]},
+ paste:{t:'Toothpaste',never:'Never in this tube: fluoride, bone-char whiteners, artificial sweeteners.',i:[
+  ['Neem','Bark and leaf','Traditional care for gums','Chemical antibacterials'],
+  ['Clove','Dried flower bud','Comforts sensitive teeth','Numbing additives'],
+  ['Mint','Leaf oil','Clean, cool freshness','Artificial flavour']]}};
+let lp='shampoo',li=0;
+function lens(){
+  $('#l-tabs').innerHTML=Object.keys(L).map(k=>`<button id="lt-${k}" data-k="${k}" aria-pressed="${k===lp}">${L[k].t}</button>`).join('');
+  $('#l-img').src='img/'+byId(lp).img; $('#l-img').alt=byId(lp).n;
+  $('#ings').innerHTML=L[lp].i.map((x,j)=>`<button id="ing-${j}" data-j="${j}" aria-pressed="${j===li}">${x[0]}</button>`).join('');
+  const x=L[lp].i[li];
+  $('#l-card').innerHTML=`<h5>${x[0]}</h5><div class="l-rows"><div><span>Source</span>${x[1]}</div><div><span>What it does</span>${x[2]}</div><div><span>Replaces</span><s>${x[3]}</s></div></div>`;
+  $('#never').textContent=L[lp].never;
+}
+$('#l-tabs').onclick=e=>{const b=e.target.closest('button');if(b){lp=b.dataset.k;li=0;lens()}};
+$('#ings').onclick=e=>{const b=e.target.closest('button');if(b){li=+b.dataset.j;lens()}};
+lens();
+
+/* ---- build a box ---- */
+const sel=new Set(['shampoo','oil','soap']);
+function box(){
+  $('#picks').innerHTML=P.map(x=>`<button class="pick" id="pk-${x.id}" data-id="${x.id}" aria-pressed="${sel.has(x.id)}"><img src="img/${x.img}" alt="" loading="lazy"><b>${x.n}</b><span>${rs(x.p)}</span></button>`).join('');
+  const n=sel.size, sub=P.filter(x=>sel.has(x.id)).reduce((a,x)=>a+x.p,0), ok=n>=4, tot=ok?Math.round(sub*.88):sub;
+  $('#b-count').textContent=n+' item'+(n===1?'':'s'); $('#b-sub').innerHTML=ok?`<s>${rs(sub)}</s>`:rs(sub);
+  $('#b-prog').style.width=Math.min(100,n/4*100)+'%';
+  const m=$('#b-msg'); m.className='msg'+(ok?' ok':''); m.textContent=ok?'12% off unlocked. You save '+rs(sub-tot):'Add '+(4-n)+' more to save 12%';
+  $('#b-tot').textContent=rs(tot);
+}
+$('#picks').onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const id=b.dataset.id;sel.has(id)?sel.delete(id):sel.add(id);box()};
+$('#b-add').onclick=()=>sel.size?add(sel.size,'your box of '+sel.size):toast('Pick at least one product');
+box();
+
+/* ---- quiz ---- */
+const Q=[{q:'What bothers you most right now?',o:[['Hair fall or dryness','oil'],['Sensitive skin','soap'],["I don't know what's in my products",'kit']]},
+         {q:'Who is it for?',o:[['Just me','me'],['My family','kit'],['A gift','kit']]}];
+let qs=0,qa=[];
+function quiz(){
+  const el=$('#quiz');
+  if(qs<Q.length){const x=Q[qs];
+    el.innerHTML=`<span class="q-step">Find your ritual · ${qs+1} of ${Q.length}</span><h5>${x.q}</h5><div class="q-opts">${x.o.map((o,j)=>`<button id="q-${qs}-${j}" data-v="${o[1]}">${o[0]}</button>`).join('')}</div>`;
+  }else{
+    const pick=qa[1]==='kit'?'kit':qa[0], r=byId(pick);
+    const why={oil:'Slow-infused oil for stronger roots. Pair it with the shampoo.',soap:'A gentle bar made for skin that reacts easily.',kit:'Four essentials in one box. The easiest way to switch the whole shelf.'}[pick];
+    el.innerHTML=`<span class="q-step">Your ritual</span><div class="q-res"><img src="img/${r.img}" alt="${r.n}"><div><h5>${r.n}</h5><p>${why}</p><button class="gbtn" id="q-add" data-add="${pick}">Add to cart · ${rs(r.p)}</button><button class="link" id="q-again">Start again</button></div></div>`;
+  }
+}
+$('#quiz').onclick=e=>{const b=e.target.closest('.q-opts button');if(b){qa[qs]=b.dataset.v;qs++;quiz();return}
+  if(e.target.id==='q-again'){qs=0;qa=[];quiz()}};
+quiz();
+
+/* ---- festival mode + device ---- */
+const F={everyday:{bar:'Free shipping over ₹999 · Subscribe & save 10%',k:'before the day begins',h:'One day, lived with <i>Ahimsa.</i>',p:'Scroll through a morning in a Jain home. Every ritual, and what goes into it.'},
+ diwali:{bar:'Diwali offer · Samanvay at ₹1,250 · Free gift note',k:'this Diwali',h:'A Diwali, lived with <i>Ahimsa.</i>',p:'Gift the whole ritual. Samanvay at ₹1,250, wrapped, with your note inside.'},
+ paryushan:{bar:'Paryushan Parva · The quiet-week edit is live',k:'Paryushan Parva',h:'Eight quiet days, lived with <i>Ahimsa.</i>',p:'Gentle essentials and charcoal-free dhoop for the stillest week of the year.'}};
+function seg(id,fn){$(id).onclick=e=>{const b=e.target.closest('button');if(!b)return;[...$(id).children].forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.v)}}
+seg('#fest',v=>{const f=F[v];$('#site').dataset.fest=v;$('#s-bar').textContent=f.bar;$('#h-k').textContent=f.k;$('#h-h').innerHTML=f.h;$('#h-p').textContent=f.p;$('#site').scrollTo({top:0,behavior:'smooth'})});
+
+/* ---- the day: scroll-driven scenes ---- */
+const site=$('#site'),scs=[...document.querySelectorAll('.sc')],clock=$('#clock'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function day(){const H=site.clientHeight,st=site.scrollTop;let cur=scs[0];
+  scs.forEach(s=>{const top=s.offsetTop-st;if(!rm)s.style.setProperty('--p',Math.max(0,Math.min(1,(H-top)/(H*.8))).toFixed(3));if(top<H*.55)cur=s});
+  const last=scs[scs.length-1];
+  clock.classList.toggle('off',last.offsetTop+last.offsetHeight-st<H*.4);
+  clock.querySelector('b').textContent=cur.dataset.t;clock.querySelector('span').textContent=cur.dataset.l;
+  clock.classList.toggle('night',cur.id==='sc-dusk'||cur.id==='sc-box');
+  if(!rm){$('#dawn-bg').style.transform='translateY('+(st*.25).toFixed(1)+'px)';$('#sc-dawn').style.setProperty('--sp',Math.min(1,st/400).toFixed(2))}}
+site.addEventListener('scroll',day,{passive:true});addEventListener('resize',day);day();
+$('#peel-r').oninput=e=>$('#peel').style.setProperty('--pp',e.target.value+'%');
+const cv=$('#smoke'),cx=cv.getContext('2d');let lit=false,ps=[],raf;
+function smoke(){const d=$('#sc-dusk'),w=cv.width=d.clientWidth,h=cv.height=d.clientHeight,f=d.querySelector('.r-img');
+  const ox=f.offsetLeft+f.offsetWidth*.42,oy=f.offsetTop+f.offsetHeight*.62+parseFloat(getComputedStyle(d).paddingTop);
+  (function loop(){cx.clearRect(0,0,w,h);
+    if(ps.length<80)ps.push({x:ox,y:oy,r:5,a:.36,vx:(Math.random()-.5)*.5,t:Math.random()*6});
+    ps.forEach(p=>{p.t+=.02;p.y-=1.1;p.x+=p.vx+Math.sin(p.t)*.6;p.r+=.34;p.a-=.0028;
+      const g=cx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,'rgba(240,225,205,'+Math.max(0,p.a)+')');g.addColorStop(1,'rgba(240,225,205,0)');cx.fillStyle=g;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()});
+    ps=ps.filter(p=>p.a>0&&p.y>-40);raf=requestAnimationFrame(loop)})()}
+$('#light').onclick=()=>{lit=!lit;$('#sc-dusk').classList.toggle('lit',lit);$('#light').textContent=lit?'Put it out':'Light the dhoop';cancelAnimationFrame(raf);ps=[];cx.clearRect(0,0,cv.width,cv.height);if(lit&&!rm)smoke()};
+seg('#dev',v=>$('#frame').classList.toggle('phone',v==='phone'));
+
+/* ---- instagram ---- */
+const T=[
+ {img:'g-hands.jpg',k:'06:25',t:'The <i>bath.</i>',r:1,pillar:'The Ritual',fmt:'Reel · ASMR, no voiceover',hook:'Sound on. Ten seconds of lather.',cta:'Shop tag on the soap',cap:'06:25. Calendula, tulsi and nothing else to think about.'},
+ {img:'g-box.jpg',k:'Samanvay',pillar:'The Ritual',fmt:'Carousel · 5 slides',hook:'"Four products. One calmer morning."',cta:'Comment KIT',cap:'Four products. One calmer morning. 🪷\n\nSwipe to see what goes into each one, and what never will.\n\nComment KIT for the link.'},
+ {img:'g-neem.jpg',k:'Beyond the label',t:'Neem. Clove. <i>Mint.</i>',pillar:'Beyond the Label',fmt:'Carousel · what is inside',hook:'"That is the whole list."',cta:'Save for later',cap:'Neem. Clove. Mint. That is the whole list.\n\nSwipe for what each one does.'},
+ {img:'g-dawn.jpg',k:'Our story',t:'Why <i>Gir?</i>',r:1,pillar:'Community',fmt:'Reel · founder voiceover',hook:'"People ask about the name every week."',cta:'Follow for part 2',cap:'The story behind the name, told by our founder.'},
+ {img:'g-soap.jpg',k:'Calendula & Tulsi',pillar:'The Ritual',fmt:'Single photo · product tag',hook:'No text. Just the bar in morning light.',cta:'Tap to shop',cap:'Made slowly. Used daily.'},
+ {img:'g-paste.jpg',k:'Beyond the label',t:'Is your toothpaste <i>vegetarian?</i>',r:1,pillar:'Beyond the Label',fmt:'Reel · person to camera',hook:'"We check our food. Never our toothpaste."',cta:'Comment LABEL',cap:'We check if our food is Jain. We never check our toothpaste.\n\nGirfresh: neem, clove and mint. Nothing hidden.\n\n💬 Comment LABEL for our free label guide.'},
+ {img:'g-shelf.jpg',k:'The morning shelf',pillar:'The Ritual',fmt:'Carousel · the full range',hook:'One shelf, start to finish.',cta:'Link in bio',cap:'Everything a morning needs, on one shelf.'},
+ {img:'g-dhoop.jpg',k:'19:30',t:'Stillness.',r:1,pillar:'Jain Living',fmt:'Reel · slow, single shot',hook:'One stick. One minute of quiet.',cta:'Shop tag on the dhoop',cap:'19:30. Charcoal-free. For home, derasar and meditation.'},
+ {img:'g-hibiscus.jpg',k:'Beyond the label',t:'Read the <i>back.</i>',r:1,pillar:'Beyond the Label',fmt:'Reel · 30-second myth',hook:'"The front says herbal. The back says what?"',cta:'Comment LABEL',cap:'Two herbs on the front of the bottle. The full list on the back. Read both.'},
+ {img:'g-oil.jpg',k:'06:40',t:'Kshir Pak Vidhi, <i>slowly.</i>',r:1,pillar:'The Ritual',fmt:'Reel · process footage',hook:'"Ayurveda\'s slowest oil method."',cta:'Comment OIL',cap:'How Gir Nourish is made, the slow way.'},
+ {img:'c-pedestal.jpg',k:'Gifting',t:'Gift what you’d <i>use.</i>',pillar:'The Ritual',fmt:'Single post · festival offer',hook:'A gift that gets used up, not put away.',cta:'Comment GIFT',cap:'The Samanvay box, wrapped, with your note inside.'},
+ {img:'c-pampas.jpg',k:'Community',t:'A letter from <i>Dhruvil.</i>',pillar:'Community',fmt:'Carousel · founder letter',hook:'"I grew up reading every food label."',cta:'Pinned post',cap:'Why Gir Aura exists, in our founder\'s words.'}];
+const tile=t=>`<span class="tile${t.t?'':' cl'}"><span class="bg" style="background-image:url(img/${t.img})"></span><span class="in"><span class="tk">${t.k}</span>${t.t?`<span class="tt">${t.t}</span>`:''}</span>${t.r?'<span class="rl"></span>':''}</span>`;
+$('#grid3').innerHTML=T.map((t,i)=>`<button id="tile-${i}" data-i="${i}" aria-label="Open post: ${(t.t||t.k).replace(/<[^>]+>/g,'')}">${tile(t)}</button>`).join('');
+function brief(i){const t=T[i];$('#brief').innerHTML=`<div><span class="lbl">Pillar</span><b>${t.pillar}</b></div><div><span class="lbl">Format</span><b>${t.fmt}</b></div><div><span class="lbl">Hook</span><b>${t.hook}</b></div><div><span class="lbl">Next step</span><b>${t.cta}</b></div>`}
+brief(0);
+function closeOv(){document.querySelectorAll('#scr .ov,#scr .story').forEach(x=>x.remove());clearTimeout(st)}
+$('#grid3').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i,t=T[i];brief(i);closeOv();
+  const o=document.createElement('div');o.className='ov';
+  o.innerHTML=`<div class="ov-h"><button id="ov-x" aria-label="Back to grid">←</button>Posts</div><div class="who"><i></i>gir.aura</div>${tile(t)}<div class="acts" aria-hidden="true">♡ ◯ ➤</div><div class="cap"><b>gir.aura</b> ${t.cap}</div>`;
+  $('#scr').appendChild(o);o.querySelector('#ov-x').onclick=closeOv};
+/* highlights -> stories */
+const H=[['Morning','g-hands.jpg',[0,4,9]],['Labels','g-neem.jpg',[2,5,8]],['Evening','g-dhoop.jpg',[7]],['Samanvay','g-box.jpg',[1,6,10]],['Story','g-dawn.jpg',[3,11]]];
+$('#hls').innerHTML=H.map((h,i)=>`<button id="hl-${i}" data-i="${i}"><i style="background-image:url(img/${h[1]})"></i>${h[0]}</button>`).join('');
+let st;
+$('#hls').onclick=e=>{const b=e.target.closest('button');if(!b)return;const ids=H[+b.dataset.i][2];closeOv();
+  const s=document.createElement('div');s.className='story';$('#scr').appendChild(s);let k=0;
+  function show(){if(k>=ids.length){closeOv();return}
+    s.innerHTML=`<div class="sbar">${ids.map((_,j)=>`<i class="${j<k?'done':j===k?'on':''}"><b></b></i>`).join('')}</div><button class="x" id="st-x" aria-label="Close story">×</button><button class="nx" id="st-n" aria-label="Next story"></button>${tile(T[ids[k]])}`;
+    brief(ids[k]);s.querySelector('#st-x').onclick=closeOv;s.querySelector('#st-n').onclick=()=>{clearTimeout(st);k++;show()};
+    clearTimeout(st);st=setTimeout(()=>{k++;show()},3200)}
+  show()};
+
+/* ---- before / after ---- */
+[['#r-web','#ba-web'],['#r-ig','#ba-ig']].forEach(([r,b])=>{$(r).oninput=e=>$(b).style.setProperty('--p',e.target.value+'%')});
+
+/* ---- one-off screenshot modes ---- */
+const shot=new URLSearchParams(location.search).get('shot');
+if(shot==='web')document.body.classList.add('shot-web');
+if(shot==='ig'){const g=$('#shotgrid');g.hidden=false;g.innerHTML=T.slice(0,8).map(tile).join('');document.body.classList.add('shot-ig')}
+})();
+</script>
+</body></html>
